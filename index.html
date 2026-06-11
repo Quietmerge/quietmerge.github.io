@@ -42,7 +42,10 @@
   .btn-ghost:hover{border-color:var(--v1)}
 
   /* hero */
-  .hero{text-align:center;padding:70px 0 30px}
+  .hero{text-align:center;padding:54px 0 30px}
+  .hero-logo{width:112px;height:112px;border-radius:28px;margin:0 auto 30px;display:block;
+    box-shadow:0 26px 70px rgba(124,58,237,.5);animation:floaty 5.5s ease-in-out infinite}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
   .pill{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:999px;
     font-size:13px;color:var(--mut);margin-bottom:26px}
   .pill b{color:var(--p1)}
@@ -110,6 +113,7 @@
   </nav>
 
   <header class="hero">
+    <img src="logo.svg" alt="QuietMerge" class="hero-logo">
     <span class="pill">For teams running <b>Renovate</b> or <b>Dependabot</b> on Terraform</span>
     <h1>Auto-merge the Terraform PRs<br>that are <span class="grad-txt">safe</span>.<br>Flag the ones that <span class="grad-txt">aren't</span>.</h1>
     <p class="sub">QuietMerge reviews your provider &amp; module version-bump PRs automatically —
