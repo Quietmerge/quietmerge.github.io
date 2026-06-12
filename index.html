@@ -78,6 +78,15 @@
   .step p{color:var(--mut);font-size:15px}
   .step code{background:#0e0c17;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px;color:var(--p1)}
 
+  /* verdict gallery */
+  .verdicts{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  @media(max-width:760px){.verdicts{grid-template-columns:1fr}}
+  .verdict{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .verdict img{width:100%;display:block;border-radius:10px;border:1px solid var(--line);
+    box-shadow:0 10px 36px rgba(124,58,237,.14)}
+  .verdict .cap{margin-top:14px;font-size:15px;color:var(--mut)}
+  .verdict .cap b{display:block;color:var(--txt);font-size:16px;margin-bottom:4px;letter-spacing:-.2px}
+
   .trust{background:linear-gradient(180deg,rgba(124,58,237,.08),transparent);border:1px solid var(--line);
     border-radius:18px;padding:36px;text-align:center;max-width:780px;margin:0 auto}
   .trust h2{font-size:26px;margin-bottom:12px}
@@ -151,6 +160,27 @@
         <div class="n">3</div>
         <h3>Decides</h3>
         <p><strong>✅ Auto-merges</strong> PRs that provably change nothing. <strong>⚠️ Posts a verdict</strong> on anything that could break — what changes, what might break, what to do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="verdicts">
+    <div class="eyebrow">Real verdicts</div>
+    <h2>Straight from a live repo</h2>
+    <p class="lead">Two actual Dependabot PRs, two verdicts — one settled by proof alone, one reasoned through by Claude.</p>
+    <div class="verdicts">
+      <div class="verdict">
+        <img src="assets/verdict-noop.png" alt="QuietMerge verdict: Safe — no changes. Provider random 3.5.1 to 3.9.0, plan exit code 0, empty change set, changelog has no breaking markers." loading="lazy">
+        <p class="cap"><b>Routine bump → proven safe, instantly</b>
+           Plan came back a clean no-op and the changelog had no breaking markers, so the
+           verdict is deterministic — no AI involved, verified in seconds.</p>
+      </div>
+      <div class="verdict">
+        <img src="assets/verdict-sonnet.png" alt="QuietMerge verdict on a major AWS provider upgrade from 5.31.0 to 6.50.0: safe, with a 'what could break' list cross-checked against the plan." loading="lazy">
+        <p class="cap"><b>Major upgrade → reasoned verdict</b>
+           AWS provider 5 → 6. The plan was clean, but a major bump earns a closer look:
+           QuietMerge reads the changelog and cross-checks every breaking change against
+           your actual plan — then tells you exactly what to watch.</p>
       </div>
     </div>
   </section>
