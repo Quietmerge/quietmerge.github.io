@@ -78,6 +78,13 @@
   .step p{color:var(--mut);font-size:15px}
   .step code{background:#0e0c17;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px;color:var(--p1)}
 
+  /* why-not-DIY */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:760px){.why{grid-template-columns:1fr}}
+  .why .step h3{color:var(--p1);font-weight:700;font-size:17px}
+  .why .step .real{display:block;margin-top:9px;color:var(--mut);font-size:15px}
+  .why .step .real b{color:var(--txt)}
+
   /* verdict gallery */
   .verdicts{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
   @media(max-width:760px){.verdicts{grid-template-columns:1fr}}
@@ -160,6 +167,30 @@
         <div class="n">3</div>
         <h3>Decides</h3>
         <p><strong>✅ Auto-merges</strong> PRs that provably change nothing. <strong>⚠️ Posts a verdict</strong> on anything that could break — what changes, what might break, what to do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="eyebrow">Why not just do it yourself?</div>
+    <h2>Because the easy answers don't actually work</h2>
+    <p class="lead">Every team thinks they've got this covered. Here's what usually breaks.</p>
+    <div class="why">
+      <div class="step">
+        <h3>“We just run <code>terraform plan</code> on the PR.”</h3>
+        <span class="real">Bot PRs run <b>without your secrets or cloud auth</b> — the well-known Dependabot token trap — so the plan usually can't even run. QuietMerge dispatches it on the branch where it <b>does</b> have access, so you get a real plan instead of a failed one.</span>
+      </div>
+      <div class="step">
+        <h3>“We auto-merge when CI is green.”</h3>
+        <span class="real">Green tests don't prove your infrastructure is unchanged — <b>Terraform has no test suite</b>. Only a <code>plan</code> proves a no-op. Merge on green and a quiet <b>destroy-and-replace</b> sails straight through.</span>
+      </div>
+      <div class="step">
+        <h3>“Renovate / Dependabot already handle this.”</h3>
+        <span class="real">They <b>open</b> the PRs — they don't run a plan or read the changelog. They can't tell a harmless no-op from a breaking provider rename. That judgement is the part nobody automated. Until now.</span>
+      </div>
+      <div class="step">
+        <h3>“We'll just review them by hand.”</h3>
+        <span class="real">~95% of bump PRs change nothing, so you're <b>rubber-stamping</b> — and the 5% that actually matter drown in the noise. Meanwhile the estate falls behind and upgrades get scary.</span>
       </div>
     </div>
   </section>
