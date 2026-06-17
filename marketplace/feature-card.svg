@@ -1,0 +1,24 @@
+<svg width="965" height="482" viewBox="0 0 965 482" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="965" y2="482" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B32B8"/>
+      <stop offset="0.52" stop-color="#6D28D9"/>
+      <stop offset="1" stop-color="#9333EA"/>
+    </linearGradient>
+    <radialGradient id="hl" cx="0.2" cy="0.18" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="965" height="482" fill="url(#bg)"/>
+  <rect width="965" height="482" fill="url(#hl)"/>
+  <!-- large faint merge-check motif, right side, behind nothing critical -->
+  <g opacity="0.10" transform="translate(720,150) scale(1.7)">
+    <path d="M78 120 L116 158 L182 80" stroke="#ffffff" stroke-width="20"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g fill="#ffffff">
+      <circle cx="78" cy="120" r="14"/><circle cx="182" cy="80" r="14"/>
+      <circle cx="116" cy="158" r="11"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — QuietMerge</title>
+<meta name="description" content="How QuietMerge collects, uses, and shares data.">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+<style>
+  :root{
+    --bg:#0b0a12; --card:#16131f; --line:#272233;
+    --txt:#ece9f5; --mut:#a89fc0; --soft:#7d749a; --v1:#7C3AED; --p1:#A855F7;
+    --grad:linear-gradient(135deg,#4F46E5,#7C3AED 52%,#A855F7);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:radial-gradient(1100px 600px at 75% -10%,rgba(124,58,237,.18),transparent 60%),var(--bg);
+    color:var(--txt);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--p1);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+  nav{display:flex;align-items:center;gap:12px;padding:22px 0;font-weight:700;font-size:19px}
+  nav img{width:34px;height:34px;border-radius:9px}
+  main{padding:18px 0 80px}
+  h1{font-size:clamp(28px,5vw,40px);letter-spacing:-1px;font-weight:800;margin-bottom:8px}
+  .eff{color:var(--soft);font-size:14px;margin-bottom:32px}
+  h2{font-size:20px;margin:32px 0 10px;letter-spacing:-.3px}
+  p,li{color:var(--mut);margin-bottom:12px}
+  ul{padding-left:22px}
+  strong{color:var(--txt)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:20px 0}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--soft);font-size:14px}
+  footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a href="/" style="display:flex;align-items:center;gap:12px;color:inherit"><img src="/logo.svg" alt="QuietMerge"> QuietMerge</a></nav>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="eff">Last updated: 17 June 2026</p>
+
+    <p>QuietMerge ("we", "us") is a GitHub App that reviews Terraform and OpenTofu
+    dependency-update pull requests, auto-merges the provably safe ones, and posts a
+    verdict on anything that could break. This policy explains what we collect, why,
+    and who we share it with. Questions: <a href="mailto:hello@quietmerge.dev">hello@quietmerge.dev</a>.</p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li><strong>Installation metadata</strong> — your GitHub account or organisation login, and the IDs and names of the repositories you install QuietMerge on.</li>
+      <li><strong>Pull request metadata</strong> — for dependency-update PRs: the PR number, author (the bot that opened it), branch name, and the before/after versions being bumped.</li>
+      <li><strong>A redacted plan summary</strong> — when your CI runs <code>terraform plan</code>, it sends QuietMerge only a summary: the exit code and counts of resources that would be added, changed, or destroyed.</li>
+    </ul>
+
+    <div class="card">
+      <p style="margin:0"><strong>What we never receive.</strong> Your cloud credentials, your source code, your secrets, and the full <code>terraform plan</code> output all stay inside your own CI. The plan runs in your workflow; only the redacted summary above ever leaves it.</p>
+    </div>
+
+    <h2>How we use it</h2>
+    <ul>
+      <li>To classify each dependency-bump PR as safe or risky and post a verdict.</li>
+      <li>To auto-merge pull requests you have opted in to and that are provably no-ops.</li>
+      <li>To keep an audit trail of verdicts and actions taken on your repositories.</li>
+    </ul>
+
+    <h2>Who we share it with</h2>
+    <ul>
+      <li><strong>Anthropic</strong> — for risky PRs, the redacted plan summary and changelog text are sent to the Claude API to generate the plain-English verdict. No source, secrets, or credentials are included.</li>
+      <li><strong>Railway</strong> — our hosting and database provider; data is stored on infrastructure they operate.</li>
+      <li><strong>GitHub</strong> — we act on your repositories through the GitHub API to post comments and merge PRs.</li>
+    </ul>
+    <p>We do not sell your data or share it with anyone else.</p>
+
+    <h2>Storage and retention</h2>
+    <p>Installation metadata, PR metadata, and verdicts are stored in a Postgres database on Railway and retained for audit purposes. When you uninstall the App we disable your repositories; you can request full deletion of your data at any time by emailing us.</p>
+
+    <h2>Cookies</h2>
+    <p>The setup and settings pages use strictly functional cookies — a signed session cookie and a CSRF token, both <code>HttpOnly; Secure; SameSite=Lax</code>. We use no advertising or tracking cookies and no third-party analytics.</p>
+
+    <h2>Your rights</h2>
+    <p>You can request access to, or deletion of, the data we hold about your installation by emailing <a href="mailto:hello@quietmerge.dev">hello@quietmerge.dev</a>. Uninstalling the GitHub App stops all further processing.</p>
+
+    <h2>Changes</h2>
+    <p>We may update this policy; the "last updated" date above will change when we do. Material changes will be reflected on this page.</p>
+  </main>
+  <footer class="wrap" style="padding-left:0;padding-right:0">
+    <a href="/">← QuietMerge</a> &nbsp;·&nbsp; <a href="/terms">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:hello@quietmerge.dev">hello@quietmerge.dev</a>
+  </footer>
+</div>
+</body>
+</html>
