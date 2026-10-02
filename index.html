@@ -51,6 +51,12 @@
   .pill b{color:var(--p1)}
   h1{font-size:clamp(34px,6vw,60px);line-height:1.07;letter-spacing:-1.5px;font-weight:800;margin-bottom:20px}
   .sub{font-size:clamp(17px,2.4vw,21px);color:var(--mut);max-width:680px;margin:0 auto 14px}
+  .note{font-size:15px;color:var(--mut);margin:16px auto 0}
+  .how-note{margin-top:28px;font-size:15px;color:var(--mut);text-align:left}
+  .how-note p{margin:0 0 8px}
+  .how-note ul{margin:0;padding-left:22px}
+  .how-note li{margin-bottom:6px}
+  .how-note strong{color:var(--txt)}
   .hook{font-size:15px;color:var(--soft);font-style:italic;margin-bottom:34px}
   .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
@@ -133,6 +139,7 @@
       <a class="btn btn-primary" href="https://github.com/marketplace/quietmerge">Install on GitHub →</a>
       <a class="btn btn-ghost" href="#how">See how it works</a>
     </div>
+    <p class="note">Starts in comment-only mode: it merges nothing until you switch auto-merge on.</p>
   </header>
 
   <div class="ba">
@@ -161,6 +168,14 @@
         <h3>Decides</h3>
         <p><strong>✅ Auto-merges</strong> PRs that provably change nothing. <strong>⚠️ Posts a verdict</strong> on anything that could break — what changes, what might break, what to do.</p>
       </div>
+    </div>
+    <div class="how-note">
+      <p><strong>Note:</strong> auto-merge is off until you switch it on, so at first every PR just gets the verdict. Even then, only proof merges: an empty plan, a clean changelog and bot-only commits. An AI-judged verdict never merges on its own — you merge those yourself.</p>
+      <p><strong>To switch it on</strong>, either:</p>
+      <ul>
+        <li>open your QuietMerge settings (at <a href="https://app.quietmerge.dev/setup/start">app.quietmerge.dev</a>, signing in with your GitHub account) and click <em>Enable automerge</em> next to the repo, or</li>
+        <li>add <code>automerge: true</code> to a <code>quietmerge.yml</code> file at the root of the repo's default branch. If both are set, the file wins.</li>
+      </ul>
     </div>
   </section>
 
