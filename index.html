@@ -28,6 +28,11 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
   .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
+  /* temporary outage notice */
+  .notice{background:var(--card);border-bottom:1px solid var(--line);color:var(--txt);
+    font-size:14px;text-align:center;padding:10px 24px}
+  .notice strong{color:var(--p1)}
+
   /* nav */
   nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:19px;letter-spacing:-.3px}
@@ -116,6 +121,7 @@
 </style>
 </head>
 <body>
+<div class="notice" role="status"><strong>Temporarily down.</strong> Our hosting provider is having an issue, so QuietMerge is paused for now. We'll be back as soon as it's fixed.</div>
 <div class="wrap">
 
   <nav>
